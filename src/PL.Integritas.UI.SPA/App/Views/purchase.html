@@ -1,0 +1,117 @@
+﻿<h1 class="text-center text-danger">Complete Purchase</h1>
+
+<br />
+
+<div class="row">
+
+    <form class="form-horizontal" role="form" name="paymentForm">
+        <div class="col-md-12  col-sm-12  col-xs-8 " style="background:#fff; padding:30px;">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <h3 class="text-center">Payment</h3>
+
+                <hr>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-sm" ng-model="cardHolderName" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name" required>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-sm" ng-model="cardNumber" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <select class="form-control" ng-model="cardExpiryMonth" name="expiry-month" id="expiry-month">
+                            <option>Month</option>
+                            <option value="1">Jan (01)</option>
+                            <option value="2">Feb (02)</option>
+                            <option value="3">Mar (03)</option>
+                            <option value="4">Apr (04)</option>
+                            <option value="5">May (05)</option>
+                            <option value="6">June (06)</option>
+                            <option value="7">July (07)</option>
+                            <option value="8">Aug (08)</option>
+                            <option value="9">Sep (09)</option>
+                            <option value="10">Oct (10)</option>
+                            <option value="11">Nov (11)</option>
+                            <option value="12">Dec (12)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <select class="form-control" ng-model="cardExpiryYear" name="expiry-year">
+                            <option value="13">2013</option>
+                            <option value="14">2014</option>
+                            <option value="15">2015</option>
+                            <option value="16">2016</option>
+                            <option value="17">2017</option>
+                            <option value="18">2018</option>
+                            <option value="19">2019</option>
+                            <option value="20">2020</option>
+                            <option value="21">2021</option>
+                            <option value="22">2022</option>
+                            <option value="23">2023</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-sm" ng-model="cvv" name="cvv" id="cvv" placeholder="Security Code">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 shipping col-sm-6 col-xs-12">
+                <h3 class="text-center">Shipping Address</h3>
+                <hr>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" ng-model="adress" name="adress" id="adress" class="form-control input-sm" placeholder="Adress" required>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" ng-model="country" name="country" id="country" class="form-control input-sm" placeholder="country">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <input type="text" ng-model="state" name="state" id="state" class="form-control input-sm" placeholder="state">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <input type="text" ng-model="city" name="city" id="city" class="form-control input-sm" placeholder="city">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <input type="text" ng-model="zipPostalCode" name="zipPostalCode" id="zipPostalCode" class="form-control input-sm" placeholder="zipPostalCode" only-digits required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button ng-disabled="paymentForm.$invalid" ng-click="FinishPurchase()" class="btn btn-primary pull-right">
+                    Finish Purchase
+                </button>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+<style>
+    input:invalid {
+      border-color: #ffdddd;
+    }
+    input:valid {
+      border-color: #ddffdd;
+    }
+    input:required {
+      border-width: 3px;
+    }
+</style>

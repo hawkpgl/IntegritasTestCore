@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="IntegritasApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="App/Services/ProductService.js"></script>
+    <script src="App/Services/ShoppingCartService.js"></script>
+    <script src="App/Services/PurchaseService.js"></script>
+    <script src="App/IntegritasApp.js"></script>
+    <script src="App/Controllers/MainController.js"></script>
+    <script src="App/Controllers/HomeController.js"></script>
+    <script src="App/Controllers/ShoppingCartController.js"></script>
+    <script src="App/Controllers/PurchaseController.js"></script>
+    <script src="App/Directives/OnlyDigitsDirective.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="MainController">
+        <nav role="navigation" class="navbar navbar-inverse">
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#Home">Home</a></li>
+                <li><a href="#ShoppingCart">Shopping Cart</a></li>
+                <li><a href="#AllPurchases">All Purchases</a></li>
+            </ul>
+
+        </nav>
+
+        <div ng-view>
+
+        </div>
+
+        <h3 style="margin-top:40px;" class="text-center text-info">Integritas<sup>&reg;</sup> {{date | date:'yyyy'}}</h3>
+    </div>
+</body>
+</html>

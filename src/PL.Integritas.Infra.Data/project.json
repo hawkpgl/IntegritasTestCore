@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.EntityFrameworkCore": "1.1.0",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
+    "Microsoft.Extensions.Configuration": "1.1.0",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.1.0",
+    "Microsoft.Extensions.Configuration.Json": "1.1.0",
+    "NETStandard.Library": "1.6.0",
+    "PL.Integritas.Domain": "1.0.0-*",
+    "System.Reflection.TypeExtensions": "4.1.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
