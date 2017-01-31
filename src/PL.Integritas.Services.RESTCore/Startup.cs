@@ -54,7 +54,7 @@ namespace PL.Integritas.Services.RESTCore
             });
 
             services.AddDbContext<IntegritasContext>(options =>
-                options.UseSqlServer(@"Server=DESKTOP-SLOU7DL\LOCALDB;Database=IntegritasDB;Trusted_Connection=True;"), ServiceLifetime.Scoped);
+                options.UseSqlServer(@"Data Source=177.54.157.35;Initial Catalog=integritasdb;User Id=integritas;Password=yQze18@3"), ServiceLifetime.Scoped);
 
             //App IoC
             services.AddSingleton<IProductAppService, ProductAppService>();
