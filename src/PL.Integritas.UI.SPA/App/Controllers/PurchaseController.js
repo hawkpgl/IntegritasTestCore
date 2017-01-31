@@ -45,12 +45,27 @@
                 $scope.state = undefined;
                 $scope.city = undefined;
                 $scope.zipPostalCode = undefined;
-
-
+                changeLocation("index.html", true);
             })
             .error(function (response) {
                 alert('Error on finishing your purchase. Please do not go away!!!');
             });
+
+            var changeLocation = function (url, forceReload) {
+                $scope = $scope || angular.element(document).scope();
+                if (forceReload || $scope.$$phase) {
+                    window.location = url;
+                }
+                else {
+                    //only use this if you want to replace the history stack
+                    $location.path(url).replace();
+
+                    //this this if you want to change the URL and add it to the history stack
+                    //$location.path(url);
+
+                    $scope.$apply();
+                }
+            };
 
         };
     });
