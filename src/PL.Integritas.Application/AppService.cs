@@ -7,9 +7,13 @@ namespace PL.Integritas.Application
     {
         private IUnityOfWork _uow;
 
+        public AppService(IUnityOfWork uow)
+        {
+            _uow = uow;
+        }
+
         public void BeginTransaction()
         {
-            _uow = new UnityOfWork();
             _uow.BeginTransaction();
         }
 

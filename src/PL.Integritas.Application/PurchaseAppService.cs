@@ -2,6 +2,7 @@
 using PL.Integritas.Application.ViewModels;
 using PL.Integritas.Domain.Entities;
 using PL.Integritas.Domain.Interfaces.Services;
+using PL.Integritas.Infra.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace PL.Integritas.Application
         private readonly IShoppingCartService _shoppingCartService;
 
         public PurchaseAppService(IPurchaseService purchaseService,
-                                  IShoppingCartService shoppingCartService)
+                                  IShoppingCartService shoppingCartService, 
+                                  IUnityOfWork uow)
+            : base(uow)
         {
             _purchaseService = purchaseService;
             _shoppingCartService = shoppingCartService;

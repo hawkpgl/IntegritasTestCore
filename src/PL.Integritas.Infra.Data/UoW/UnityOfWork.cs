@@ -9,10 +9,9 @@ namespace PL.Integritas.Infra.Data.UoW
         private readonly IntegritasContext _dbContext;
         private bool _disposed;
 
-        public UnityOfWork()
+        public UnityOfWork(IntegritasContext integritasContext)
         {
-            var contextManager = new ContextManager();
-            _dbContext = contextManager.GetContext();
+            _dbContext = integritasContext;
         }
 
         public void BeginTransaction()

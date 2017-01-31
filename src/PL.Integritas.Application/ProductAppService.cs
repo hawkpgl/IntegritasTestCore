@@ -2,6 +2,7 @@
 using PL.Integritas.Application.ViewModels;
 using PL.Integritas.Domain.Entities;
 using PL.Integritas.Domain.Interfaces.Services;
+using PL.Integritas.Infra.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -12,7 +13,8 @@ namespace PL.Integritas.Application
     {
         private readonly IProductService _productService;
 
-        public ProductAppService(IProductService productService)
+        public ProductAppService(IProductService productService, IUnityOfWork uow)
+            :base(uow)
         {
             _productService = productService;
         }

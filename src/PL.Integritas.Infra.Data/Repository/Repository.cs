@@ -4,18 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace PL.Integritas.Infra.Data.Repository
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected IntegritasContext Db;
-        protected Microsoft.EntityFrameworkCore.DbSet<TEntity> DbSet;
+        protected DbSet<TEntity> DbSet;
 
-        public Repository()
+        public Repository(IntegritasContext integritasContext)
         {
-            var contextManager = new ContextManager();
-            Db = contextManager.GetContext();
+            Db = integritasContext;
             DbSet = Db.Set<TEntity>();
         }
 

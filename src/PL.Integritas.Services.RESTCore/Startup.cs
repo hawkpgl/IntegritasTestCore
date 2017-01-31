@@ -14,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 using PL.Integritas.Infra.Data.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using PL.Integritas.Infra.Data.Interfaces;
+using PL.Integritas.Infra.Data.UoW;
 
 namespace PL.Integritas.Services.RESTCore
 {
@@ -43,9 +45,8 @@ namespace PL.Integritas.Services.RESTCore
 
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddMvc();
-            //.AddJsonOptions(a => a.SerializerSettings.ContractResolver =
-            //    new CamelCasePropertyNamesContractResolver());
+            services.AddMvc()
+                .AddJsonOptions(a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
             services.Configure<MvcOptions>(options =>
             {
@@ -53,7 +54,7 @@ namespace PL.Integritas.Services.RESTCore
             });
 
             services.AddDbContext<IntegritasContext>(options =>
-                options.UseSqlServer(@"Server=DESKTOP-SLOU7DL\LOCALDB;Database=IntegritasDB;Trusted_Connection=True;"));
+                options.UseSqlServer(@"Server=DESKTOP-SLOU7DL\LOCALDB;Database=IntegritasDB;Trusted_Connection=True;"), ServiceLifetime.Scoped);
 
             //App IoC
             services.AddSingleton<IProductAppService, ProductAppService>();
@@ -61,6 +62,7 @@ namespace PL.Integritas.Services.RESTCore
             services.AddSingleton<IShoppingCartAppService, ShoppingCartAppService>();
 
             //Data IoC
+            services.AddSingleton<IUnityOfWork, UnityOfWork>();
             services.AddSingleton<IProductRepository, ProductRepository>();
             services.AddSingleton<IPurchaseRepository, PurchaseRepository>();
             services.AddSingleton<IShoppingCartRepository, ShoppingCartRepository>();
